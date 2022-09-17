@@ -41,6 +41,7 @@ TST_data = {
   y: [4, 5, 9],
   title: 'TST_data',
   name: 'TST_data',
+  yaxis: 'y2',
   type: 'scatter',
   opacity: 1,
   line: {
@@ -55,6 +56,7 @@ EDS_data = {
   y: [22, 21, 24],
   title: 'EDS_data',
   name: 'EDS_data',
+  yaxis: 'y3',
   type: 'scatter',
   opacity: 1,
   line: {
@@ -69,6 +71,7 @@ Bedtime_consistency_data = {
   y: [70, 81, 71],
   title: 'Bedtime_consistency_data',
   name: 'Bedtime_consistency_data',
+  yaxis: 'y4',
   type: 'scatter',
   opacity: 1,
   line: {
@@ -100,9 +103,10 @@ var layout = {
     showgrid:true,
     zeroline: false
   },
+
   yaxis: {
     title: {
-      text: 'SE TST EDS Bedtime Consistency',
+      text: 'SE',
       font: {
         family: 'Courier New, monospace',
         size: 18,
@@ -110,8 +114,42 @@ var layout = {
       },
     },
     showgrid:false,
-    zeroline: true
+    zeroline: false
   },
+
+  yaxis2: {
+    title: 'TST',
+    titlefont: {color: '#ff7f0e'},
+    tickfont: {color: '#ff7f0e'},
+    anchor: 'free',
+    overlaying: 'y',
+    side: 'left',
+    position: 0.05,
+    showgrid:false,
+    zeroline: false
+  },
+  yaxis3: {
+    title: 'EDS',
+    titlefont: {color: '#d62728'},
+    tickfont: {color: '#d62728'},
+    anchor: 'x',
+    overlaying: 'y',
+    side: 'right',
+    showgrid:false,
+    zeroline: false
+  },
+  yaxis4: {
+    title: 'Bedtime Consistency',
+    titlefont: {color: '#9467bd'},
+    tickfont: {color: '#9467bd'},
+    anchor: 'free',
+    overlaying: 'y',
+    side: 'right',
+    position: 0.95,
+    showgrid:false,
+    zeroline: false
+  }
+
 };
 
 var data = [SE_data, TST_data, EDS_data, Bedtime_consistency_data];
