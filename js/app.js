@@ -1,157 +1,175 @@
-var SE_data = [
-    {x: '2000/01/01-2000/01/10', y: 2.5}, 
-    {x: '2000/01/12-2000/01/15', y: 3.7},
-    {x: '2000/01/13-2000/01/17', y: 1}
-];
-
-var TST_data = [
-    {x: '2000/01/01-2000/01/10', y: 70},
-    {x: '2000/01/12-2000/01/15', y: 81},
-    {x: '2000/01/13-2000/01/17', y: 71}
-];
-
-var EDS_data = [
-    {x: '2000/01/01-2000/01/10', y: 22},
-    {x: '2000/01/12-2000/01/15', y: 21},
-    {x: '2000/01/13-2000/01/17', y: 24}
-];
-
-var Bedtime_consistency_data = [
-    {x: '2000/01/01-2000/01/10', y: 4},
-    {x: '2000/01/12-2000/01/15', y: 5},
-    {x: '2000/01/13-2000/01/17', y: 9}
-];
+function arr(str) {
+  return str.split('-').join(' ').split(' ');
+}
+const str = '2000/01/01-2000/01/10 2000/01/12-2000/01/15 2000/01/13-2000/01/17';
+const xData = arr(str);
+console.log(xData);
 
 SE_data = {
-  x: ['2000/01/01-2000/01/10', '2000/01/12-2000/01/15', '2000/01/13-2000/01/17'],
-  y: [2.5, 3.7, 1],
-  title: 'SE_data',
-  name: 'SE_data',
+  x: xData,
+  y: [2.5, 3.7, 1, 33, 22],
+  mode: 'lines+markers+text',
+  name: 'SE',
+  text: ['2.5', '3.7', '1'],
+  textposition: 'top',
   type: 'scatter',
-  opacity: 1,
-  line: {
-    color: 'red',
-    size: [20, 20, 20, 20]
+  marker: {
+    size: 10,
   },
-  position: 'top',
+  textfont: {
+    size: 16
+  }
 };
 
 TST_data = {
-  x: ['2000/01/01-2000/01/10', '2000/01/12-2000/01/15', '2000/01/13-2000/01/17'],
-  y: [4, 5, 9],
-  title: 'TST_data',
-  name: 'TST_data',
-  yaxis: 'y2',
+  x: xData,
+  y: [70, 81, 71],
+  mode: 'lines+markers+text',
+  name: 'TST',
+  text: ['70', '81', '71'],
+  textposition: 'top',
   type: 'scatter',
-  opacity: 1,
-  line: {
-    color: 'purple',
-    size: [20, 20, 20, 20]
+  marker: {
+    size: 10,
   },
-  position: 'top',
-};
+  textfont: {
+    size: 16
+  }
+},
 
 EDS_data = {
-  x: ['2000/01/01-2000/01/10', '2000/01/12-2000/01/15', '2000/01/13-2000/01/17'],
+  x: xData,
   y: [22, 21, 24],
-  title: 'EDS_data',
-  name: 'EDS_data',
-  yaxis: 'y3',
+  mode: 'lines+markers+text',
+  name: 'EDS',
+  text: ['22', '21', '24'],
+  textposition: 'top',
   type: 'scatter',
-  opacity: 1,
-  line: {
-    color: 'green',
-    size: [20, 20, 20, 20]
+  marker: {
+    size: 10,
   },
-  position: 'top',
-};
+  textfont: {
+    size: 16
+  }
+},
 
 Bedtime_consistency_data = {
-  x: ['2000/01/01-2000/01/10', '2000/01/12-2000/01/15', '2000/01/13-2000/01/17'],
-  y: [70, 81, 71],
-  title: 'Bedtime_consistency_data',
-  name: 'Bedtime_consistency_data',
-  yaxis: 'y4',
+  x: xData,
+  y: [4, 5, 9],
+  mode: 'lines+markers+text',
+  name: 'Bedtime Consistency',
+  text: ['4', '5', '9'],
+  textposition: 'bottom',
   type: 'scatter',
-  opacity: 1,
-  line: {
-    color: 'blue',
-    size: [20, 20, 20, 20]
+  marker: {
+    size: 10,
   },
-  position: 'top',
-};
-
-var layout = {
-  title: {
-    text:'',
-    font: {
-      family: 'Courier New, monospace',
-      size: 24
-    },
-    xref: 'paper',
-    x: 0.05,
-  },
-  xaxis: {
-    title: {
-      text: 'x Axis',
-      font: {
-        family: 'Courier New, monospace',
-        size: 18,
-        color: '#7f7f7f'
-      }
-    },
-    showgrid:true,
-    zeroline: false
-  },
-
-  yaxis: {
-    title: {
-      text: 'SE',
-      font: {
-        family: 'Courier New, monospace',
-        size: 18,
-        color: '#7f7f7f'
-      },
-    },
-    showgrid:false,
-    zeroline: false
-  },
-
-  yaxis2: {
-    title: 'TST',
-    titlefont: {color: '#ff7f0e'},
-    tickfont: {color: '#ff7f0e'},
-    anchor: 'free',
-    overlaying: 'y',
-    side: 'left',
-    position: 0.05,
-    showgrid:false,
-    zeroline: false
-  },
-  yaxis3: {
-    title: 'EDS',
-    titlefont: {color: '#d62728'},
-    tickfont: {color: '#d62728'},
-    anchor: 'x',
-    overlaying: 'y',
-    side: 'right',
-    showgrid:false,
-    zeroline: false
-  },
-  yaxis4: {
-    title: 'Bedtime Consistency',
-    titlefont: {color: '#9467bd'},
-    tickfont: {color: '#9467bd'},
-    anchor: 'free',
-    overlaying: 'y',
-    side: 'right',
-    position: 0.95,
-    showgrid:false,
-    zeroline: false
+  textfont: {
+    size: 16
   }
+}
 
+let layout = {
+showlegend: true,
+height: 700,
+width: 1200,
+xaxis: {
+  showgrid: false,
+  zeroline: false,
+  showline: true,
+  showticklabels: true,
+  linewidth: 2,
+  autotick: false,
+},
+yaxis: {
+  showgrid: false,
+  zeroline: false,
+  showline: false,
+  showticklabels: true,
+
+},
+
+shapes: [{
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/01',
+  y0: 0,
+  x1: '2000/01/01',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+}, {
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/10',
+  y0: 0,
+  x1: '2000/01/10',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+}, {
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/12',
+  y0: 0,
+  x1: '2000/01/12',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+}, {
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/13',
+  y0: 0,
+  x1: '2000/01/13',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+},{
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/15',
+  y0: 0,
+  x1: '2000/01/15',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+}, {
+  type: 'line',
+  xref: 'x',
+  yref: 'paper',
+  x0: '2000/01/17',
+  y0: 0,
+  x1: '2000/01/17',
+  y1: 1,
+  line: {
+    color: 'rgb(30, 30, 30)',
+    width: 1,
+    dash: 'dot',
+  }
+}]
 };
 
-var data = [SE_data, TST_data, EDS_data, Bedtime_consistency_data];
+let data = [SE_data, TST_data, EDS_data, Bedtime_consistency_data];
 
 Plotly.newPlot(tester, data, layout);
