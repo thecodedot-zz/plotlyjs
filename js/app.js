@@ -90,6 +90,10 @@ let EDS_data = {
   //   tickvals: yaxis3_EDS_ticks
 };
 
+//fix the yaxis range
+
+// Bedtime point 9 create problem on layout yaxis range
+
 var yaxis4_Bedtime_consistency_data_max = Math.max(...[4, 5, 9]);
 var yaxis4_Bedtime_consistency_data_min = Math.min(...[4, 5, 9]);
 var yaxis4_Bedtime_consistency_ticks = linspace(yaxis4_Bedtime_consistency_data_min, yaxis4_Bedtime_consistency_data_max, 3);
