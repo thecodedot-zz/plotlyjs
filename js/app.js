@@ -5,9 +5,9 @@ const str = '2000/01/01-2000/01/10 2000/01/12-2000/01/15 2000/01/13-2000/01/17';
 const xData = arr(str);
 console.log(xData);
 
-SE_data = {
+let SE_data = {
   x: xData,
-  y: [2.5, 3.7, 1, 33, 22],
+  y: [2.5, 3.7, 1],
   mode: 'lines+markers+text',
   name: 'SE',
   text: ['2.5', '3.7', '1'],
@@ -21,13 +21,14 @@ SE_data = {
   }
 };
 
-TST_data = {
+let TST_data = {
   x: xData,
   y: [70, 81, 71],
   mode: 'lines+markers+text',
   name: 'TST',
   text: ['70', '81', '71'],
   textposition: 'top',
+  yaxis: 'y2',
   type: 'scatter',
   marker: {
     size: 10,
@@ -35,15 +36,16 @@ TST_data = {
   textfont: {
     size: 16
   }
-},
+};
 
-EDS_data = {
+let EDS_data = {
   x: xData,
   y: [22, 21, 24],
   mode: 'lines+markers+text',
   name: 'EDS',
   text: ['22', '21', '24'],
   textposition: 'top',
+  yaxis: 'y3',
   type: 'scatter',
   marker: {
     size: 10,
@@ -51,15 +53,16 @@ EDS_data = {
   textfont: {
     size: 16
   }
-},
+};
 
-Bedtime_consistency_data = {
+let Bedtime_consistency_data = {
   x: xData,
   y: [4, 5, 9],
   mode: 'lines+markers+text',
   name: 'Bedtime Consistency',
   text: ['4', '5', '9'],
   textposition: 'bottom',
+  yaxis: 'y4',
   type: 'scatter',
   marker: {
     size: 10,
@@ -67,12 +70,16 @@ Bedtime_consistency_data = {
   textfont: {
     size: 16
   }
-}
+};
 
 let layout = {
 showlegend: true,
 height: 700,
 width: 1200,
+margin: {
+  l: 200,
+  r: 50,
+},
 xaxis: {
   showgrid: false,
   zeroline: false,
@@ -84,9 +91,8 @@ xaxis: {
 yaxis: {
   showgrid: false,
   zeroline: false,
-  showline: false,
-  showticklabels: true,
-
+  showline: true,
+  showticklabels: false,
 },
 
 shapes: [{
@@ -167,7 +173,42 @@ shapes: [{
     width: 1,
     dash: 'dot',
   }
-}]
+}],
+
+yaxis2: {
+  title: 'TST',
+  titlefont: {color: '#ff7f0e'},
+  tickfont: {color: '#ff7f0e'},
+  anchor: 'free',
+  overlaying: 'y',
+  side: 'left',
+  position: 0.01,
+  showgrid:false,
+  zeroline: false,
+  showline: true,
+},
+yaxis3: {
+  title: 'EDS',
+  titlefont: {color: '#d62728'},
+  tickfont: {color: '#d62728'},
+  anchor: 'x',
+  overlaying: 'y',
+  side: 'left',
+  showgrid:false,
+  zeroline: false,
+},
+yaxis4: {
+  title: 'Bedtime Consistency',
+  titlefont: {color: '#9467bd'},
+  tickfont: {color: '#9467bd'},
+  anchor: 'free',
+  overlaying: 'y',
+  side: 'left',
+  showgrid:false,
+  zeroline: false
+},
+
+
 };
 
 let data = [SE_data, TST_data, EDS_data, Bedtime_consistency_data];
